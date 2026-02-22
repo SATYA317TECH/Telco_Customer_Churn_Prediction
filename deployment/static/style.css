@@ -481,18 +481,45 @@ button:disabled {
         padding: 20px;
     }
     
+    /* Fix result card on mobile */
+    .result-card {
+        height: auto;
+        min-height: 200px;
+        padding: 20px;
+    }
+    
+    #loading .result-card {
+        height: auto;
+        min-height: 200px;
+    }
+    
     .result-row {
+        margin: 10px 0;
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
     }
     
     .label {
         margin-bottom: 5px;
         min-width: auto;
+        width: 100%;
     }
     
     .value {
         font-size: 20px;
+        width: 100%;
+        word-break: break-word;
+    }
+    
+    .suggestion {
+        width: 100%;
+        word-break: break-word;
+    }
+    
+    .risk-badge {
+        width: auto;
+        margin: 5px 0;
     }
     
     .form-group {
