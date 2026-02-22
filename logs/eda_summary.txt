@@ -1,0 +1,11 @@
+CHURN DISTRIBUTION
+churn
+False    0.73463
+True     0.26537
+Name: proportion, dtype: float64
+
+TENURE VS CHURN
+churn
+False    62.569965
+True     42.979133
+Name: tenure_months, dtype: float64

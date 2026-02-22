@@ -1,0 +1,182 @@
+TELCO CUSTOMER CHURN – RETENTION STRATEGIES
+==========================================
+
+Project Context
+---------------
+This document outlines the business retention strategies derived from the
+customer churn prediction model. High-risk customers are identified using
+a Logistic Regression model with a tuned probability threshold of 0.42.
+Retention actions are mapped based on the dominant churn drivers.
+
+
+CHURN DECISION FRAMEWORK
+-----------------------
+IF churn_probability >= 0.40:
+    Customer is classified as HIGH RISK
+    Apply targeted retention strategy
+ELSE:
+    No retention action required
+
+
+CORE RETENTION STRATEGIES
+------------------------
+
+1. PRICE-SENSITIVE CUSTOMERS
+----------------------------
+Identified By:
+- High monthly_charges
+- High charges_per_month
+- Month-to-month contract
+
+Reason for Churn:
+Customers perceive the service as expensive relative to value.
+
+Retention Actions:
+- Offer targeted discounts (5–15%)
+- Suggest plan downgrade with same benefits
+- Provide bundled services at no extra cost
+
+Business Note:
+Avoid blanket discounts. Apply only to high-risk customers.
+
+
+2. EARLY TENURE / NEW CUSTOMERS
+-------------------------------
+Identified By:
+- tenure_months < 6
+- tenure_bucket_0-6
+
+Reason for Churn:
+Poor onboarding experience or unmet expectations.
+
+Retention Actions:
+- Proactive welcome call
+- Free add-on service for 1–2 months
+- Usage education and onboarding support
+
+Business Note:
+Early intervention has the highest ROI in churn reduction.
+
+
+3. CUSTOMER EXPERIENCE (CX) RISK
+--------------------------------
+Identified By:
+- High cx_risk_score
+- High avg_resolution_time
+- Low avg_satisfaction_score
+
+Reason for Churn:
+Customers feel frustrated due to slow or poor support.
+
+Retention Actions:
+- Priority customer support queue
+- Dedicated support representative
+- Apology credit or goodwill compensation
+
+Business Note:
+Improving CX often reduces churn more effectively than discounts.
+
+
+4. BILLING & PAYMENT FRICTION
+-----------------------------
+Identified By:
+- payment_method = Electronic Check
+- Late payments
+- High billing complaints
+
+Reason for Churn:
+Payment inconvenience and billing confusion.
+
+Retention Actions:
+- Incentivize auto-pay enrollment
+- Simplify billing structure
+- Payment reminders and alerts
+
+Business Note:
+Operational fixes can significantly reduce churn at low cost.
+
+
+5. LOW ENGAGEMENT / LOW STICKINESS
+---------------------------------
+Identified By:
+- Low engagement_score
+- Low stickiness_score
+
+Reason for Churn:
+Customer does not rely heavily on the service.
+
+Retention Actions:
+- Promote add-on services
+- Offer bundled features
+- Personalized usage recommendations
+
+Business Note:
+Increasing dependency reduces switching likelihood.
+
+
+ADVANCED / OPTIONAL STRATEGIES
+------------------------------
+
+6. CONTRACT MIGRATION STRATEGY
+------------------------------
+Identified By:
+- Month-to-month contract
+- High churn probability
+
+Retention Actions:
+- Incentivize upgrade to 1-year or 2-year contract
+- Offer upfront benefit (discount, free service month)
+
+Business Note:
+Long-term contracts are one of the strongest churn reducers.
+
+
+7. HIGH-VALUE CUSTOMER PROTECTION
+---------------------------------
+Identified By:
+- Long tenure
+- High total_charges
+- High customer lifetime value
+
+Retention Actions:
+- Loyalty rewards
+- Personalized offers
+- Dedicated account management
+
+Business Note:
+Protect high-value customers proactively.
+
+
+8. NO-ACTION SEGMENT (COST OPTIMIZATION)
+----------------------------------------
+Identified By:
+- Low churn probability
+- Long tenure
+- High stickiness
+
+Retention Actions:
+- No intervention required
+- Avoid unnecessary discounts
+
+Business Note:
+Retention budget should not be wasted on low-risk customers.
+
+
+9. A/B TESTING & EXPERIMENTATION
+-------------------------------
+Identified By:
+- High-risk customers
+
+Retention Actions:
+- Test discount vs CX intervention
+- Measure churn reduction across strategies
+
+Business Note:
+Continuous experimentation improves long-term retention strategy.
+
+
+FINAL NOTE
+----------
+The churn prediction model is designed not only to predict churn but to drive
+actionable business decisions. Retention strategies are applied selectively
+based on churn drivers to maximize customer retention while optimizing cost.

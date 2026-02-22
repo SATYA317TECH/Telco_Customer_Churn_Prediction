@@ -1,0 +1,13 @@
+feature,coefficient,abs_importance,direction,importance_pct,rank
+support_ticket_count,3.5310987491120107,3.5310987491120107,⬆️ Increases churn,38.25,1
+contract_type_two year,-1.4157866772485503,1.4157866772485503,⬇️ Decreases churn,15.34,2
+contract_type_month-to-month,0.8274769492591305,0.8274769492591305,⬆️ Increases churn,8.96,3
+tenure_months,-0.6562783205624855,0.6562783205624855,⬇️ Decreases churn,7.11,4
+payment_method_mailed check,-0.6040444413709242,0.6040444413709242,⬇️ Decreases churn,6.54,5
+contract_type_one year,-0.5101583187857542,0.5101583187857542,⬇️ Decreases churn,5.53,6
+payment_method_credit card,-0.5044418595738674,0.5044418595738674,⬇️ Decreases churn,5.46,7
+monthly_charges,0.4884161276384062,0.4884161276384062,⬆️ Increases churn,5.29,8
+payment_method_bank transfer,0.26860796321396296,0.26860796321396296,⬆️ Increases churn,2.91,9
+payment_method_electronic check,-0.25858970904436773,0.25858970904436773,⬇️ Decreases churn,2.8,10
+avg_data_usage_gb,0.12857958028442812,0.12857958028442812,⬆️ Increases churn,1.39,11
+avg_call_minutes,0.03875170060128423,0.03875170060128423,⬆️ Increases churn,0.42,12

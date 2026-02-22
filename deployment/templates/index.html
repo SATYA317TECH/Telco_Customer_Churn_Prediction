@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telco Churn Predictor</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Body loading overlay - appears when resetting form -->
+    <div class="body-loading" id="bodyLoading">
+        <div class="body-spinner"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <h1>📊 Customer Churn Predictor</h1>
+        <p class="subtitle">Predict customer churn probability using ML model</p>
+        
+        <!-- Form Section -->
+        <div class="form-section">
+            <form id="churnForm" novalidate>
+                <!-- Tenure Months Input -->
+                <div class="form-group">
+                    <label>Tenure (Months)</label>
+                    <input name="tenure_months" type="number" placeholder="1-75 months" required>
+                    <div class="validation-message" id="tenure_months_msg"></div>
+                </div>
+                
+                <!-- Contract Type Dropdown -->
+                <div class="form-group">
+                    <label>Contract Type</label>
+                    <select name="contract_type" required>
+                        <option value="" disabled selected>Select Contract Type</option>
+                        <option value="month-to-month">Month-to-Month</option>
+                        <option value="one year">One Year</option>
+                        <option value="two year">Two Year</option>
+                    </select>
+                    <div class="validation-message" id="contract_type_msg"></div>
+                </div>
+                
+                <!-- Monthly Charges Input -->
+                <div class="form-group">
+                    <label>Monthly Charges ($)</label>
+                    <input name="monthly_charges" type="number" placeholder="19 - 119" required>
+                    <div class="validation-message" id="monthly_charges_msg"></div>
+                </div>
+                
+                <!-- Payment Method Dropdown -->
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select name="payment_method" required>
+                        <option value="" disabled selected>Select Payment Method</option>
+                        <option value="electronic check">Electronic Check</option>
+                        <option value="credit card">Credit Card</option>
+                        <option value="bank transfer">Bank Transfer</option>
+                        <option value="mailed check">Mailed Check</option>
+                    </select>
+                    <div class="validation-message" id="payment_method_msg"></div>
+                </div>
+                
+                <!-- Support Tickets Input -->
+                <div class="form-group">
+                    <label>Support Tickets</label>
+                    <input name="support_ticket_count" type="number" placeholder="0-7 tickets" required>
+                    <div class="validation-message" id="support_ticket_count_msg"></div>
+                </div>
+                
+                <!-- Average Call Minutes Input -->
+                <div class="form-group">
+                    <label>Avg Call Minutes</label>
+                    <input name="avg_call_minutes" type="number" placeholder="0-275 minutes" required>
+                    <div class="validation-message" id="avg_call_minutes_msg"></div>
+                </div>
+                
+                <!-- Average Data Usage Input -->
+                <div class="form-group">
+                    <label>Avg Data Usage (GB)</label>
+                    <input name="avg_data_usage_gb" type="number" placeholder="0-30 GB" required>
+                    <div class="validation-message" id="avg_data_usage_gb_msg"></div>
+                </div>
+                
+                <!-- Quick Risk Check Buttons Section -->
+                <div class="quick-check-section">
+                    <h3>Quick Risk Check : </h3>
+                    <div class="quick-check-buttons">
+                        <button type="button" class="quick-check-btn low-risk-btn" onclick="fillLowRiskCustomer()">Low Risk Customer</button>
+                        <button type="button" class="quick-check-btn medium-risk-btn" onclick="fillMediumRiskCustomer()">Medium Risk Customer</button>
+                        <button type="button" class="quick-check-btn high-risk-btn" onclick="fillHighRiskCustomer()">High Risk Customer</button>
+                    </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="form-group button-group">
+                    <button type="submit" id="predictBtn">Predict Churn</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Error Message Display -->
+        <div id="errorBox" style="display:none;"></div>
+        
+        <!-- Results Container -->
+        <div id="resultsContainer">
+            <!-- Prediction Result Heading - Shows immediately when prediction starts -->
+            <h2 id="resultHeading" style="display: none;">Prediction Result</h2>
+            
+            <!-- Loading Spinner - Appears in same space as result card -->
+            <div id="loading" style="display: none;">
+                <div class="result-card">
+                    <div class="spinner"></div>
+                    <p>Processing...</p>
+                </div>
+            </div>
+            
+            <!-- Results Display Section -->
+            <div id="resultBox" style="display: none;">
+                <div class="result-card">
+                    <div class="result-row">
+                        <span class="label">Churn Probability:</span>
+                        <span class="value" id="probText"></span>
+                    </div>
+                    <div class="result-row">
+                        <span class="label">Risk Level:</span>
+                        <span id="riskText" class="risk-badge"></span>
+                    </div>
+                    <div class="result-row">
+                        <span class="label">Suggestion:</span>
+                        <span id="suggestionText" class="suggestion"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Button Container - Space reserved for Check Another button -->
+            <div id="buttonContainer">
+                <button onclick="resetForm()" class="secondary-btn" id="checkAnotherBtn">Check Another Customer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="/static/script.js"></script>
+</body>   
+</html>

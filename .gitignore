@@ -1,0 +1,76 @@
+# Python cache files - IGNORE ALL __pycache__ folders
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+ENV/
+myenv/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+*.env
+.env.local
+.env.*.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python distribution
+dist/
+build/
+*.egg-info/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# pip log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Dataset
+/*.csv
+
+# ========================================
+# KEEP FOLDER STRUCTURE (but not content)
+# ========================================
+!artifacts/.gitkeep
+!dashboard/.gitkeep
+!logs/.gitkeep
+
+# ========================================
+# SOURCE CODE - ALWAYS INCLUDE
+# ========================================
+!config/db_config.py
+!deployment/static/
+!deployment/templates/
+!src/
+!retraining/
+!docs/
+
+# ========================================
+# MODEL FILES - CRITICAL FOR DEPLOYMENT!
+# ========================================
+!artifacts/*.joblib

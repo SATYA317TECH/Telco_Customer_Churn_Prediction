@@ -1,0 +1,594 @@
+/* ========================================
+   TELCO CHURN PREDICTOR - MAIN STYLESHEET
+   ======================================== */
+
+/* ---------- BASE STYLES ---------- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* ---------- BODY LOADING OVERLAY ---------- */
+.body-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.body-loading.active {
+    display: flex;
+}
+
+.body-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ---------- CUSTOM SCROLLBAR (Hidden but functional) ---------- */
+body::-webkit-scrollbar {
+    width: 1px;
+    display: none;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ---------- HEADER STYLES ---------- */
+h1 {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    margin: 0 0 30px 0;
+    font-size: 16px;
+}
+
+/* ---------- FORM SECTION ---------- */
+.form-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+/* ---------- FORM GROUP (Individual field container) ---------- */
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+    min-height: auto;
+}
+
+/* Special styling for button group */
+.form-group.button-group {
+    min-height: auto;
+    margin-bottom: 0;
+}
+
+/* ---------- LABELS ---------- */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* ---------- INPUT FIELDS ---------- */
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state for inputs and selects */
+input:focus, select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Hide number input arrows in Chrome/Safari/Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide number input arrows in Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* ---------- DROPDOWN STYLES (No arrow, gray by default) ---------- */
+select {
+    background-color: white;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Placeholder option styling */
+select option[value=""] {
+    color: #999;
+}
+
+/* Selected option styling */
+select option:not([value=""]) {
+    color: #333;
+}
+
+/* Remove default browser validation styling */
+input:invalid, select:invalid {
+    box-shadow: none;
+    border-color: #ddd;
+}
+
+/* ---------- VALIDATION MESSAGES ---------- */
+.validation-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 3px;
+    min-height: 20px;
+    line-height: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Error state - red border */
+.error-border {
+    border-color: #e74c3c !important;
+    background-color: #fff8f8;
+}
+
+/* Valid state - green border */
+.valid-border {
+    border-color: #2ecc71 !important;
+}
+
+/* ---------- PLACEHOLDER STYLING (Transparent italic) ---------- */
+::placeholder {
+    color: #aaa;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+/* ---------- QUICK RISK CHECK SECTION ---------- */
+.quick-check-section {
+    background: #f0f7ff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0 25px 0;
+    border: 1px solid #3498db;
+    border-left: 4px solid #3498db;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.quick-check-section h3 {
+    margin: 0 0 12px 0;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.quick-check-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quick-check-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.low-risk-btn {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.low-risk-btn:hover {
+    background: #a9d6b1;
+}
+
+.medium-risk-btn {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.medium-risk-btn:hover {
+    background: #ffe29a;
+}
+
+.high-risk-btn {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.high-risk-btn:hover {
+    background: #f1b0b7;
+}
+
+/* ---------- MAIN ACTION BUTTON ---------- */
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #429046;
+}
+
+button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* ---------- ERROR MESSAGE BOX ---------- */
+#errorBox {
+    background: #fee;
+    color: #c00;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 4px solid #c00;
+}
+
+/* ---------- RESULTS CONTAINER ---------- */
+#resultsContainer {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+}
+
+/* ---------- LOADING SPINNER ---------- */
+#loading {
+    display: none;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#loading .result-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    height: 200px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#loading .spinner {
+    margin: 0 0 20px 0;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+#loading p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+/* ---------- RESULTS SECTION ---------- */
+#resultBox {
+    animation: fadeIn 0.5s;
+    margin: 20px 0;
+}
+
+/* Results card container */
+.result-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    height: 200px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.result-row {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.label {
+    font-weight: 600;
+    min-width: 140px;
+    color: #495057;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.risk-badge {
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.risk-badge.low {
+    background: #d4edda;
+    color: #155724;
+}
+
+.risk-badge.medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.risk-badge.high {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.suggestion {
+    color: #495057;
+    line-height: 1.6;
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* ---------- BUTTON CONTAINER ---------- */
+#buttonContainer {
+    height: 0;
+    margin-top: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+    transition: height 0.3s ease, margin 0.3s ease;
+}
+
+/* Secondary button (Check Another) */
+.secondary-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    min-width: 220px;
+    text-align: center;
+    transition: opacity 0.5s ease, background 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background: #3d4248;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .form-section {
+        padding: 20px;
+    }
+    
+    .result-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .label {
+        margin-bottom: 5px;
+        min-width: auto;
+    }
+    
+    .value {
+        font-size: 20px;
+    }
+    
+    .form-group {
+        min-height: 80px;
+    }
+    
+    .quick-check-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .quick-check-btn {
+        width: 100%;
+        min-width: auto;
+        padding: 12px;
+    }
+    
+    button {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+    
+    .risk-badge {
+        font-size: 14px;
+        padding: 6px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
+    
+    input, select {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .quick-check-section {
+        padding: 12px 15px;
+    }
+    
+    .quick-check-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .result-card {
+        padding: 20px;
+    }
+    
+    .value {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .container {
+        margin: 15px auto;
+    }
+    
+    .form-group {
+        min-height: 70px;
+    }
+    
+    .quick-check-buttons {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+@media print {
+    .quick-check-section,
+    button,
+    .secondary-btn,
+    .body-loading {
+        display: none;
+    }
+    
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 20px;
+    }
+}
