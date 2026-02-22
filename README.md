@@ -11,7 +11,7 @@ This project builds an **end-to-end churn prediction system** that:
 - Suggests retention strategies  
 - Deploys a production-ready prediction API with UI  
 
-**Live Demo**: *Coming soon - will be deployed on Render*
+**Live Demo**: [https://telco-churn-predictor-1m22.onrender.com](https://telco-churn-predictor-1m22.onrender.com)
 
 ## 🎯 Business Problem Statement
 
@@ -215,7 +215,7 @@ For complete details, see [`docs/retention_strategies.txt`](./docs/retention_str
 
 The model is deployed as a web application where users can input customer details and get instant churn predictions.
 
-**Live Demo**: *Coming soon - will be deployed on Render*
+**Live Demo**: [https://telco-churn-predictor-1m22.onrender.com](https://telco-churn-predictor-1m22.onrender.com)
 
 ### Tech Stack
 - **Backend**: FastAPI
